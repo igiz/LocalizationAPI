@@ -1,0 +1,6 @@
+node_modules/
+public/tasks
+.env
+logs/log.txt
+logs/localization.log
+logs/api.log

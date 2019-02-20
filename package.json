@@ -1,0 +1,32 @@
+{
+  "name": "localizationapi",
+  "version": "1.0.0",
+  "description": "REST API for extracting localizable resources and translating them to various languages.",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "app-root-path": "^2.1.0",
+    "archiver": "^3.0.0",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-fileupload": "^0.4.0",
+    "glob": "^7.1.3",
+    "glob-promise": "^3.4.0",
+    "node-powershell": "^3.3.1",
+    "npm": "^6.4.1",
+    "powershell": "^2.3.0",
+    "pug": "^2.0.3",
+    "serve-favicon": "^2.5.0",
+    "simple-node-logger": "^0.93.40",
+    "swagger-ui-dist": "^3.19.0",
+    "swagger-ui-express": "^4.0.1",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}

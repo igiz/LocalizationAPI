@@ -1,0 +1,11 @@
+html
+  head
+    title= title
+  body
+    h2 Welcome to #{title}
+    img(src='/public/images/localization.png' alt='Localization Logo')
+    p This API is for submiting files to be translated and acquiring the translations back.
+    p Select a file to be translated to begin:
+    form(method='post', action='/translate', enctype='multipart/form-data')
+      input(type='file', name='fileUploaded' accept='.json,.properties')
+      input(type='submit')

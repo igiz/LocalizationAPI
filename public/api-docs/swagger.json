@@ -1,0 +1,125 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "RestAPI on top of our localization scripts to aid the build processes/automation of localizable resource generation.",
+    "version": "1.0.0",
+    "title": "Localization API",
+    "contact": {
+      "email": "zygimantas.raugas@insightsoftware.com"
+    }
+  },
+  "host": "swdl-sonarqube:8081",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "translate",
+      "description": "Translation tasks and their results"
+    }
+  ],
+  "paths": {
+    "/translate": {
+      "post": {
+        "tags": [
+          "translate"
+        ],
+        "summary": "Translate a given resource",
+        "description": "",
+        "operationId": "translate",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/TaskApiResponse"
+            }
+          },
+          "404": {
+            "description": "file not found",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "415": {
+            "description": "unsupported resource format",
+            "schema": {
+              "$ref": "#/definitions/TaskApiResponse"
+            }
+          },
+          "500": {
+            "description": "critical error"
+          }
+        }
+      }
+    },
+    "/translate/{taskId}": {
+      "get": {
+        "tags": [
+          "translate"
+        ],
+        "summary": "Current status or result of a translation task",
+        "description": "Returns either the",
+        "operationId": "getTaskById",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "description": "Unique ID of the translation task",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/TaskApiResponse"
+            }
+          },
+          "415": {
+            "description": "unsupported format",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "TaskApiResponse": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        }
+      }
+    },
+    "ApiResponse": {
+      "type": "object",
+      "properties": {
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

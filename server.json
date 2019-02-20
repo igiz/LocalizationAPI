@@ -1,0 +1,6 @@
+{
+  "name" : "Localization API",
+  "script" : "server.js",
+  "watch": true,
+  "ignore_watch" : ["node_modules", "logs", "__tests__", ".gitignore", "README.md", ".vscode", "public"]
+}
